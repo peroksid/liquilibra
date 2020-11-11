@@ -2,3 +2,5 @@ syntax: glob
 
 venv
 *.code-workspace
+.vscode
+__pycache__
