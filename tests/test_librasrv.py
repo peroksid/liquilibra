@@ -23,6 +23,7 @@ def test_request_post(client):
         data=dict(email=EMAIL, title=TITLE, id=ID, timestamp=NOW),
         follow_redirects=True,
     )
+    assert resp.is_json
     assert 200 == resp.status_code
 
 
@@ -36,6 +37,7 @@ def test_request_get_collection(client):
     expected_json.update({"timestamp": datetime.now().strftime("%m/%d/%Y, %H:%M:%S")})
     resp = client.get("/request", follow_redirects=True)
     assert 200 == resp.status_code
+    assert resp.is_json
     assert resp.json == {"requests": [expected_json]}
 
 
@@ -49,6 +51,7 @@ def test_request_get(client):
     }
     expected_json.update({"timestamp": datetime.now().strftime("%m/%d/%Y, %H:%M:%S")})
     assert resp.json == expected_json
+    assert resp.is_json
     assert 200 == resp.status_code
 
 def test_request_delete(client):
