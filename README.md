@@ -20,6 +20,7 @@ python3 -m venv venv
 pip install -r requirements.txt
 pip install -r development_requirements.txt
 edit->
-pylint *.py ->
-pytest
+black ./ ->
+pylint *.py tests/*.py ->
+pytest ->
 commit
