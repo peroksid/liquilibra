@@ -4,3 +4,4 @@ venv
 *.code-workspace
 .vscode
 __pycache__
+tmp/

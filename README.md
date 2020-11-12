@@ -24,3 +24,11 @@ black ./ ->
 pylint *.py tests/*.py ->
 pytest ->
 commit
+
+... init db?
+docker-compose up
+  and in another console:
+python3 -m venv venv
+. venv/bin/activate
+pip install -r requirements.txt
+FLASK_APP=librasrv.py LIQUILIBRA_SETTINGS=test_environment.cfg flask init-db
