@@ -50,3 +50,10 @@ def test_request_get(client):
     expected_json.update({"timestamp": datetime.now().strftime("%m/%d/%Y, %H:%M:%S")})
     assert resp.json == expected_json
     assert 200 == resp.status_code
+
+def test_request_delete(client):
+  # TODO: 404 for missing ID
+  resp = client.delete("/request/4242")
+  assert 200 == resp.status_code
+  assert not resp.is_json
+  assert b'' == resp.data

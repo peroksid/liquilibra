@@ -45,7 +45,7 @@ def list_requests():
 
 
 @bp.route("/<request_id>", methods=("GET",))
-def get_request(request_id):
+def read_request(request_id):
     # TODO: get the object from data storage
     # TODO: add data storage :)
     return jsonify(
@@ -54,3 +54,11 @@ def get_request(request_id):
         id="4242",
         timestamp=datetime.now().strftime("%m/%d/%Y, %H:%M:%S"),
     )
+
+@bp.route("/<request_id>", methods=("DELETE",))
+def delete_request(request_id):
+  """
+  Delete request if it exsits. 404 otherwise.
+  The spec asks for empty body, therefore, it can't be JSON.
+  """
+  return ''
